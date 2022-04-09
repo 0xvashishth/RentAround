@@ -1,5 +1,9 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import NameForm
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
@@ -8,20 +12,14 @@ def index(request):
     return render(request, "index.html")
 
 
-def get_name(request):
-    # if this is a POST request we need to process the form data
+@csrf_exempt
+def login(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = NameForm()
-
-    return render(request, 'sample.html', {'form': form})
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            print(user)
+        return redirect('login')
+    return render(request, 'login.html')

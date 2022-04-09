@@ -1,0 +1,17 @@
+-> RentHome
+
+uid,
+address,
+rent,
+location,
+is_available,
+
+
+-> Transaction
+t_id
+renthome(foreigney)
+
+
+
+
+

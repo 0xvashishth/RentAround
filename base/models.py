@@ -17,6 +17,7 @@ class UsersData(models.Model):
     token = models.CharField(max_length=200, null=True)
 
 
+
 class RentHome(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)
     address = models.CharField(max_length=400)

@@ -21,7 +21,12 @@ def login(request):
         password = request.POST.get('password')
         user = authenticate(request,username=username, password=password)
         if user is not None:
+            users = UsersData.objects.get(user_id=user.id)
             auth_login(request,user)
+            if users.usertype=='customer':
+                return redirect('/')
+            else:
+                pass
             messages.info(request,"Logged in successfully")
             return redirect('login')
         messages.warning(request,"Username or Password incorrect")
@@ -65,7 +70,14 @@ def register_user(request):
         user.save()
         user1 = UsersData(user=user,usertype=usertype,mobile=mobile,address=address,city=city,state=state,country=country,image=img)
         user1.save()
+        users = UsersData.objects.get(user_id=user.id)
         auth_login(request,user)
+        if users.usertype=='customer':
+            return redirect('/')
+        else:
+            pass
+        # messages.info(request,"Logged in successfully")
+        # return redirect('login')
         # print(fname)
         messages.info(request,"Logged in successfully")
         return render(request,'register.html')

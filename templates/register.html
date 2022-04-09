@@ -100,18 +100,19 @@
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
-                    <form action="/register_user" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name" enctype="multipart/form-data"><input type="hidden" name="email" data-form-email="true" value="BiHbWURx8ngfg6GOKuR6+uPjq8/HOD6MnSj6e3p5CtjK7NwFDojB68YZFiF3IIcgFUUG3YHjjvZrhiuPbpr681L8Ijk3n00/RuBQ9xqFg8g+dg6SIIi4g7jlq/bVgu9C"> {% csrf_token %}
+                    <form action="/register_user" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name" enctype="multipart/form-data"><input type="hidden" name="email" data-form-email="true" value="BiHbWURx8ngfg6GOKuR6+uPjq8/HOD6MnSj6e3p5CtjK7NwFDojB68YZFiF3IIcgFUUG3YHjjvZrhiuPbpr681L8Ijk3n00/RuBQ9xqFg8g+dg6SIIi4g7jlq/bVgu9C">
                         <!-- <div class="row">
                             <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for registration!!</div>
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
                                 Oops...! some problem!
                             </div>
                         </div> -->
+                        {% csrf_token %}
                         <div class="dragArea row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <h1 class="mbr-section-title mb-4 display-2"><strong>Register Yourself</strong></h1>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div hidden="hidden" class="alert alert-danger col-12">
                                 {% if messages %} {% for message in messages %} {{message}} {% endfor %} {% endif %}
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -137,7 +138,7 @@
                             </div>
                             <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="usertype"></div>
                             <select name="usertype" id="usertype" class="form-control" id="email-form3-v" required>
-                                <option default selected disabled>--Select User Type--</option>
+                                <option default selected disabled value="notnull">--Select User Type--</option>
                                 <option value="renter">Renter</option>
                                 <option value="customer">Customer</option>
                               </select>

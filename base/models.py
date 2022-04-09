@@ -21,6 +21,10 @@ class UsersData(models.Model):
 class RentHome(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)
     address = models.CharField(max_length=400)
+    image1 = models.ImageField(upload_to='pics/')
+    image2 = models.ImageField(upload_to='pics/')
+    image3 = models.ImageField(upload_to='pics/')
+    image4 = models.ImageField(upload_to='pics/')
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
@@ -29,9 +33,9 @@ class RentHome(models.Model):
     is_available = models.BooleanField()
 
 
-class Images(models.Model):
-    name = models.ForeignKey(RentHome, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='pics/')
+# class Images(models.Model):
+#     name = models.ForeignKey(RentHome, on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='pics/')
 
 
 class Transactions(models.Model):

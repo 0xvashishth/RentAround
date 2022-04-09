@@ -21,23 +21,21 @@ def login(request):
         password = request.POST.get('password')
         user = authenticate(request,username=username, password=password)
         if user is not None:
-            users = UsersData.objects.get(user_id=user.id)
+            # users = UsersData.objects.get(user_id=user.id)
             auth_login(request,user)
-            if users.usertype=='customer':
-                return redirect('/')
-            else:
-                pass
+            # if users.usertype=='customer':
+            #     return redirect('/')
+            # else:
+            #     pass
             messages.info(request,"Logged in successfully")
             return redirect('login')
         messages.warning(request,"Username or Password incorrect")
     return render(request, 'login.html')
 
-
-def register_user_page(request):
-    return render(request,'register.html')
-
-
 def register_user(request):
+    if(request.user.is_authenticated):
+        return redirect('/')
+
     if request.method == 'POST':
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
@@ -61,26 +59,25 @@ def register_user(request):
         elif(UsersData.objects.filter(mobile = mobile).exists()):
             messages.warning(request,"Your Phone is already there")
             return render(request,'register.html')
-        elif(usertype == "null"):
+        elif(usertype == "notnull" or usertype is None):
             messages.info(request,"Please Select usertype")
             return render(request,'register.html')
-        # messages.info(request,"Email is already taken")
 
         user = User.objects.create_user(username=username,password=password,email=email,first_name=fname,last_name=lname)
         user.save()
         user1 = UsersData(user=user,usertype=usertype,mobile=mobile,address=address,city=city,state=state,country=country,image=img)
         user1.save()
-        users = UsersData.objects.get(user_id=user.id)
+        # users = UsersData.objects.get(user_id=user.id)
         auth_login(request,user)
-        if users.usertype=='customer':
-            return redirect('/')
-        else:
-            pass
+        # if users.usertype=='customer':
+        #     return redirect('/')
+        # else:
+        #     pass
         # messages.info(request,"Logged in successfully")
         # return redirect('login')
         # print(fname)
-        messages.info(request,"Logged in successfully")
-        return render(request,'register.html')
+        return redirect('/')
+
 
     return render(request,'register.html')
 

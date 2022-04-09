@@ -12,6 +12,9 @@ t_id
 renthome(foreigney)
 
 
+->contract
+
+
 
 
 

@@ -59,14 +59,12 @@ def register_user(request):
         elif(usertype == "null"):
             messages.info(request,"Please Select usertype")
             return render(request,'register.html')
-        # messages.info(request,"Email is already taken")
 
         user = User.objects.create_user(username=username,password=password,email=email,first_name=fname,last_name=lname)
         user.save()
         user1 = UsersData(user=user,usertype=usertype,mobile=mobile,address=address,city=city,state=state,country=country,image=img)
         user1.save()
         auth_login(request,user)
-        # print(fname)
         messages.info(request,"Logged in successfully")
         return render(request,'register.html')
 

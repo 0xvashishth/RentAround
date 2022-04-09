@@ -18,3 +18,21 @@ renthome(foreigney)
 
 
 
+
+
+
+
+
+
+
+
+
+from django.contrib import messages
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+
+
+

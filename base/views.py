@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import NameForm
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate,login as auth_login 
+from django.contrib.auth import authenticate,login as auth_login,logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -25,3 +25,7 @@ def login(request):
             return redirect('login')
         messages.warning(request,"Username or Password incorrect")
     return render(request, 'login.html')
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')

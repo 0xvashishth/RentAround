@@ -74,10 +74,11 @@
                                     style="font-size: 25px; color: rgb(110, 199, 242);"></span>Profile</a>
                         </li>
                     </ul>
-
+                    {% if user.is_authenticated%}
                     <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
-                            href="https://mobiri.se">Logout</a></div>
-                </div>
+                            href="logout">Logout</a></div>
+                    </div>
+                    {% endif%}
             </div>
         </nav>
     </section>

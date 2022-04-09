@@ -26,14 +26,6 @@ def login(request):
         messages.warning(request,"Username or Password incorrect")
     return render(request, 'login.html')
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
 
 def register_user_page(request):
     return render(request,'register.html')
@@ -56,14 +48,18 @@ def register_user(request):
 
         if(User.objects.filter(username = username).exists()):
             messages.info(request,"username is not available")
-			return redirect('register')
-
+            return redirect('register')
+        elif(User.objects.filter(email = email).exists()):
+            messages.info(request,"Email is already taken")
+            return redirect('register')
+        elif(User.objects.filter(email = email).exists()):
+            messages.info(request,"Email is already taken")
+            return redirect('register')
 
         print(fname)
 
         return render(request,'register.html')
-=======
+
 def logout(request):
     auth_logout(request)
     return redirect('/')
->>>>>>> e9eceda188278e8f6fab73dd02fee70a8090d1bc

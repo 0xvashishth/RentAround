@@ -48,21 +48,20 @@ def register_user(request):
         img = request.FILES.get('img')
 
         if(User.objects.filter(username = username).exists()):
-            messages.info(request,"username is not available")
+            messages.warning(request,"username is not available")
             return redirect('register')
         elif(User.objects.filter(email = email).exists()):
-            messages.info(request,"Email is already taken")
+            messages.warning(request,"Email is already taken")
             return redirect('register')
         elif(UsersData.objects.filter(phone = phone).exists()):
-            messages.info(request,"Your Phone is already there")
+            messages.warning(request,"Your Phone is already there")
             return redirect('register')
         # messages.info(request,"Email is already taken")
 
 
 
         print(fname)
-
-        return render(request,'register.html')
+    return render(request,'register.html')
 
 def logout(request):
     auth_logout(request)

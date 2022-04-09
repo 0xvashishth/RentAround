@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 
 # class temp(models.Model):
 
-
-
 class UsersData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     usertype = models.CharField(max_length=100)

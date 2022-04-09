@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login as auth_login,logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .models import UsersData,Contract,Transactions,RentHome
 
 
 # Create your views here.
@@ -52,9 +53,12 @@ def register_user(request):
         elif(User.objects.filter(email = email).exists()):
             messages.info(request,"Email is already taken")
             return redirect('register')
-        elif(User.objects.filter(email = email).exists()):
-            messages.info(request,"Email is already taken")
+        elif(UsersData.objects.filter(phone = phone).exists()):
+            messages.info(request,"Your Phone is already there")
             return redirect('register')
+        # messages.info(request,"Email is already taken")
+
+
 
         print(fname)
 

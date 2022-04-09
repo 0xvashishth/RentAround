@@ -1,8 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import NameForm
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login as auth_login,logout as auth_logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 # Create your views here.
@@ -17,13 +18,15 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
-        user = authenticate(username=username, password=password)
+        user = authenticate(request,username=username, password=password)
         if user is not None:
-            print(user)
-        return redirect('login')
+            auth_login(request,user)
+            messages.info(request,"Logged in successfully")
+            return redirect('login')
+        messages.warning(request,"Username or Password incorrect")
     return render(request, 'login.html')
 
+<<<<<<< HEAD
 
 
 
@@ -59,3 +62,8 @@ def register_user(request):
         print(fname)
 
         return render(request,'register.html')
+=======
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
+>>>>>>> e9eceda188278e8f6fab73dd02fee70a8090d1bc

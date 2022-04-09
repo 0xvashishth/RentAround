@@ -16,7 +16,7 @@ class UsersData(models.Model):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     reg_date = models.DateField(auto_now_add=True)
-    token = models.CharField(max_length=200)
+    token = models.CharField(max_length=200, null=True)
 
 
 class RentHome(models.Model):

@@ -38,7 +38,7 @@ def register_user(request):
         lname = request.POST.get('lname')
         username = request.POST.get('username')
         password = request.POST.get('password')
-        phone = request.POST.get('phone')
+        mobile = request.POST.get('phone')
         email = request.POST.get('email')
         usertype = request.POST.get('usertype')
         city = request.POST.get('city')
@@ -49,18 +49,27 @@ def register_user(request):
 
         if(User.objects.filter(username = username).exists()):
             messages.warning(request,"username is not available")
-            return redirect('register')
+            return render(request,'register.html')
         elif(User.objects.filter(email = email).exists()):
             messages.warning(request,"Email is already taken")
-            return redirect('register')
-        elif(UsersData.objects.filter(phone = phone).exists()):
+            return render(request,'register.html')
+        elif(UsersData.objects.filter(mobile = mobile).exists()):
             messages.warning(request,"Your Phone is already there")
-            return redirect('register')
+            return render(request,'register.html')
+        elif(usertype == "null"):
+            messages.info(request,"Please Select usertype")
+            return render(request,'register.html')
         # messages.info(request,"Email is already taken")
 
+        user = User.objects.create_user(username=username,password=password,email=email,first_name=fname,last_name=lname)
+        user.save()
+        user1 = UsersData(user=user,usertype=usertype,mobile=mobile,address=address,city=city,state=state,country=country,image=img)
+        user1.save()
+        auth_login(request,user)
+        # print(fname)
+        messages.info(request,"Logged in successfully")
+        return render(request,'register.html')
 
-
-        print(fname)
     return render(request,'register.html')
 
 def logout(request):

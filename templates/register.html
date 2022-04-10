@@ -78,9 +78,11 @@
 
                     {% if user.is_authenticated %}
                     <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="logout">Logout</a></div>
-                </div>
-
-                {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="login">Login</a></div>
+                    </div>
+                    {% endif %}
 
             </div>
         </nav>

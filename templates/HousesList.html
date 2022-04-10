@@ -1,4 +1,8 @@
+{% load static %} {% static "images" as baseUrl %}
+
+
 <!DOCTYPE html>
+
 <html  >
 <head>
   <!-- Site made with Mobirise Website Builder v5.6.5, https://mobirise.com -->
@@ -10,24 +14,24 @@
   <meta property="og:image" content="">
   <meta name="twitter:title" content="Houses List">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/mbr-103x95.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/images/mbr-103x95.png' %}" type="image/x-icon">
   <meta name="description" content="">
   
   
   <title>Houses List</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <!-- <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="assets/animatecss/animate.css">
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css"> -->
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <!-- <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css"> -->
   
-  
+  {% include 'CSS.html' %}
   
   
 </head>
@@ -41,7 +45,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="https://mobiri.se">
-                        <img src="assets/images/mbr-103x95.png" alt="Mobirise Website Builder" style="height: 3.7rem;">
+                        <img src="{% static 'assets/images/mbr-103x95.png' %}" alt="Mobirise Website Builder" style="height: 3.7rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="https://mobiri.se">Rent Around</a></span>
@@ -82,7 +86,7 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-md-3">
                         <div class="image-wrapper">
-                            <img src="assets/images/mbr-596x397.jpg" alt="Mobirise Website Builder" title="">
+                            <img src="{% static 'assets/images/mbr-596x397.jpg' %}" alt="Mobirise Website Builder" title="">
                         </div>
                     </div>
                     <div class="col-12 col-md">
@@ -114,7 +118,7 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-md-3">
                         <div class="image-wrapper">
-                            <img src="assets/images/mbr-1-596x397.jpg" alt="Mobirise Website Builder" title="">
+                            <img src="{%static 'assets/images/mbr-1-596x397.jpg' %}" alt="Mobirise Website Builder" title="">
                         </div>
                     </div>
                     <div class="col-12 col-md">
@@ -146,7 +150,7 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-md-3">
                         <div class="image-wrapper">
-                            <img src="assets/images/mbr-596x398.jpg" alt="Mobirise Website Builder" title="">
+                            <img src="{% static 'assets/images/mbr-596x398.jpg' %}" alt="Mobirise Website Builder" title="">
                         </div>
                     </div>
                     <div class="col-12 col-md">

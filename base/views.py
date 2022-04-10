@@ -84,3 +84,10 @@ def register_user(request):
 def logout(request):
     auth_logout(request)
     return redirect('/')
+
+
+
+def house_list(request):
+    if request.user.is_authenticated:
+        return render(request,'HousesList.html')
+    return redirect('login')

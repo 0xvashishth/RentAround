@@ -44,43 +44,29 @@
                         <div class="carousel-inner">
                             <div class="carousel-item slider-image item active">
                                 <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h11-258x195.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="0" data-bs-slide-to="0">
+                                    <img class="d-block w-100" src="{{home.image1.url}}" alt="Mobirise Website Builder"
+                                        data-slide-to="0" data-bs-slide-to="0">
 
                                 </div>
                             </div>
                             <div class="carousel-item slider-image item">
                                 <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h13-258x145.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1">
+                                    <img class="d-block w-100" src="{{home.image2.url}}" alt="Mobirise Website Builder"
+                                        data-slide-to="1" data-bs-slide-to="1">
 
                                 </div>
                             </div>
                             <div class="carousel-item slider-image item">
                                 <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h14-225x225.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="2" data-bs-slide-to="2">
+                                    <img class="d-block w-100" src="{{home.image3.url}}" alt="Mobirise Website Builder"
+                                        data-slide-to="2" data-bs-slide-to="2">
 
                                 </div>
                             </div>
                             <div class="carousel-item slider-image item">
                                 <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h11-225x170.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="3" data-bs-slide-to="3">
-
-                                </div>
-                            </div>
-                            <div class="carousel-item slider-image item">
-                                <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h13-225x126.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="4" data-bs-slide-to="4">
-
-                                </div>
-                            </div>
-                            <div class="carousel-item slider-image item">
-                                <div class="item-wrapper">
-                                    <img class="d-block w-100" src="assets/images/h14-225x225.jpg"
-                                        alt="Mobirise Website Builder" data-slide-to="5" data-bs-slide-to="5">
+                                    <img class="d-block w-100" src="{{home.image4.url}}" alt="Mobirise Website Builder"
+                                        data-slide-to="3" data-bs-slide-to="3">
 
                                 </div>
                             </div>
@@ -106,46 +92,43 @@
             <div class="row justify-content-center">
                 <div class="title col-md-12 col-lg-10">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
-                        <strong>House Name</strong>
+                        <strong>{{home.city}}, {{home.states}}</strong>
                     </h3>
-                    <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-5">
-                        Write here all description of house.</h4>
-
+                    <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-5">{{home.description}}
+                    </h4>
                 </div>
             </div>
         </div>
     </section>
 
     <section data-bs-version="5.1" class="map1 cid-t2vVmesM8Q" id="map1-1h">
-
-
         <div class="container">
             <div class="mbr-section-head mb-4">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Location</strong></h3>
-
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                    <strong>{{home.address}}</strong>
+                </h3>
             </div>
             <div class="google-map"><iframe frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZI5F_k6S1k46ujh0SNrapM89f7mJxd30&amp;q=350 5th Ave, New York, NY 10118"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZI5F_k6S1k46ujh0SNrapM89f7mJxd30&amp;q={{home.address}}, {{home.city}}, {{home.state}} {{home.pincode}}"
                     allowfullscreen=""></iframe></div>
         </div>
     </section>
 
     <section data-bs-version="5.1" class="team2 cid-t2vUOFyFXH" xmlns="http://www.w3.org/1999/html" id="team2-1d">
-
-
         <div class="container">
             <div class="card">
                 <div class="card-wrapper">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-4">
                             <div class="image-wrapper">
-                                <img src="assets/images/team1.jpg" alt="Mobirise Website Builder">
+                                <img src="{{home.uid.image.url}}" alt="Mobirise Website Builder">
                             </div>
                         </div>
                         <div class="col-12 col-md">
                             <div class="card-box">
                                 <h5 class="card-title mbr-fonts-style m-0 mb-3 display-5">
-                                    <strong>John Smith</strong>
+                                    <strong>{{home.uid.user.first_name}}
+                                        {{home.uid.user.last_name}}</strong>
                                 </h5>
                                 <h6 class="card-subtitle mbr-fonts-style mb-3 display-4">
                                     <strong>Programmer</strong>
@@ -156,27 +139,20 @@
                                     buttons
                                     to see the blocks available for your theme.
                                 </p>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 
     <section data-bs-version="5.1" class="contacts2 cid-t2vVw2fkCM" id="contacts2-1i">
-        <!---->
-
-
         <div class="container">
             <div class="mbr-section-head">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                     <strong>Contacts</strong>
                 </h3>
-
             </div>
             <div class="row justify-content-center mt-4">
                 <div class="card col-12 col-md-6">
@@ -189,7 +165,7 @@
                                 <strong>Phone</strong>
                             </h6>
                             <p class="mbr-text mbr-fonts-style display-7">
-                                <a href="tel:+12345678910" class="text-primary">0 (800) 123 45 67</a>
+                                <a href="tel:{{home.uid.mobile}}" class="text-primary">{{home.uid.mobile}}</a>
                             </p>
                         </div>
                     </div>
@@ -203,7 +179,7 @@
                             <h6 class="card-title mbr-fonts-style mb-1 display-5">
                                 <strong>Email</strong>
                             </h6>
-                            <p class="mbr-text mbr-fonts-style display-7">renter@gmail.com</p>
+                            <p class="mbr-text mbr-fonts-style display-7">{{home.uid.user.email}}</p>
                         </div>
                     </div>
                 </div>
@@ -216,9 +192,7 @@
                             <h6 class="card-title mbr-fonts-style mb-1 display-5">
                                 <strong>Address</strong>
                             </h6>
-                            <p class="mbr-text mbr-fonts-style display-7">
-                                4100 Ross Street, Okawville, IL
-                            </p>
+                            <p class="mbr-text mbr-fonts-style display-7">{{home.uid.address}}</p>
                         </div>
                     </div>
                 </div>
@@ -241,6 +215,7 @@
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+    {% include 'JS.html'%}
 </body>
 
 </html>

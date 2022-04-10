@@ -18,7 +18,6 @@ class UsersData(models.Model):
     def __str__(self):
         return self.user.username
 
-
 class RentHome(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)
     address = models.CharField(max_length=400)
@@ -26,10 +25,12 @@ class RentHome(models.Model):
     image2 = models.ImageField(upload_to='pics/')
     image3 = models.ImageField(upload_to='pics/')
     image4 = models.ImageField(upload_to='pics/')
+    description = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     rent = models.FloatField()
+    rent_capacity = models.CharField(max_length=5, default=1)
     location = models.CharField(max_length=300)
     is_available = models.BooleanField()
 

@@ -10,10 +10,89 @@
     <meta property="og:image" content="">
     <meta name="twitter:title" content="View House">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/mbr-103x95.png" type="image/x-icon">
     <meta name="description" content="">
     <title>View House</title>
     {% include 'CSS.html'%}
+    <style>
+        .cid-t2vM9ENTP3 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #f0f0f0;
+        }
+
+        .cid-t2vUipgReu {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #fcfcfc;
+        }
+
+        .cid-t2vVmesM8Q {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #f0f0f0;
+        }
+
+        .cid-t2vUOFyFXH {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #fcfcfc;
+        }
+
+        .cid-t2vVw2fkCM {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #f0f0f0;
+        }
+
+        .cid-t2vVw2fkCM .card-wrapper {
+            margin-bottom: 2rem;
+            display: flex;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        @media (max-width: 991px) {
+            .cid-t2vVw2fkCM .card-wrapper {
+                padding: 1rem 2rem;
+            }
+        }
+
+        .cid-t2vVw2fkCM .card-wrapper {
+            padding: 2rem;
+        }
+
+        .cid-t2vVw2fkCM .image-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .cid-t2vVw2fkCM .mbr-iconfont {
+            font-size: 2rem;
+            padding-right: 1.5rem;
+            color: #6592e6;
+        }
+
+        .cid-t2vVw2fkCM p {
+            color: #6592e6;
+        }
+
+        .cid-t2vVmesM8Q .google-map {
+            height: 30rem;
+            position: relative;
+        }
+
+        .cid-t2vVmesM8Q .google-map iframe {
+            height: 100%;
+            width: 100%;
+        }
+
+        .animateanimated.animatedelay-1s {
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+            -webkit-animation-delay: var(--animate-delay);
+            animation-delay: var(--animate-delay);
+        }
+    </style>
 </head>
 
 <body>
@@ -110,7 +189,8 @@
             </div>
             <div class="google-map"><iframe frameborder="0" style="border:0"
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZI5F_k6S1k46ujh0SNrapM89f7mJxd30&amp;q={{home.address}}, {{home.city}}, {{home.state}} {{home.pincode}}"
-                    allowfullscreen=""></iframe></div>
+                    allowfullscreen=""></iframe>
+            </div>
         </div>
     </section>
 
@@ -150,7 +230,8 @@
     <section data-bs-version="5.1" class="contacts2 cid-t2vVw2fkCM" id="contacts2-1i">
         <div class="container">
             <div class="mbr-section-head">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <h3
+                    class="mbr-section-title mbr-fonts-style align-center mb-0 display-2 animate__animated animate__delay-1s animate__fadeInUp">
                     <strong>Contacts</strong>
                 </h3>
             </div>
@@ -164,7 +245,8 @@
                             <h6 class="card-title mbr-fonts-style mb-1 display-5">
                                 <strong>Phone</strong>
                             </h6>
-                            <p class="mbr-text mbr-fonts-style display-7">
+                            <p
+                                class="mbr-text mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">
                                 <a href="tel:{{home.uid.mobile}}" class="text-primary">{{home.uid.mobile}}</a>
                             </p>
                         </div>
@@ -196,26 +278,25 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     {% include 'footer.html' %}
 
-    <section class="display-7"
+    <!-- <section class="display-7"
         style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;">
         <a href="https://mobiri.se/2746125"
             style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
         <p style="margin: 0;text-align: center;" class="display-7">Designed with &#8204;</p><a style="z-index:1"
             href="https://mobirise.com">Mobirise </a>
-    </section>
+    </section> -->
 
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
-    {% include 'JS.html'%}
+    <!-- {% include 'JS.html'%} -->
 </body>
 
 </html>

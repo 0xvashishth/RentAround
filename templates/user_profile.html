@@ -459,8 +459,8 @@
                                 &nbsp; {% if request.userdata.usertype == "renter" %}
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHome">
-                                    Add Product
-                                  </button> {% endif %}
+                                        Add Product
+                                    </button>
                                 </div>
                                 <br><br><br>
                                 <div class="row gutters-sm">
@@ -479,7 +479,8 @@
                                     <!-- <div class="col-sm-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
+                                                <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a
+                                                        href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
 
                                             </div>
                                         </div>
@@ -494,8 +495,8 @@
                 <center>
                     <div class="col-sm-4">
                         <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#deleteModal">
-                    Delete Account
-                  </button>
+                            Delete Account
+                        </button>
                     </div>
                 </center>
                 <!-- Modal -->
@@ -505,8 +506,8 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">Add Product</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             </div>
                             <form action="/addhome" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name" enctype="multipart/form-data">
                                 {% csrf_token %}
@@ -516,7 +517,8 @@
                                         <input type="text" name="aaddress" class="form-control" id="add-address" value="" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="add-description" class="col-form-label">Add Home Description:</label>
+                                        <label for="add-description" class="col-form-label">Add Home
+                                            Description:</label>
                                         <input type="text" name="adescription" class="form-control" id="add-description" value="" required>
                                     </div>
                                     <div class="mb-3">
@@ -533,30 +535,31 @@
                             </div> -->
                                     <div class="mb-3">
                                         <select name="mode_rent" id="mode_rent" class="form-control" id="email-form3-v" required>
-                                    <option default selected disabled value="notnull">--Select Rent Availability--</option>
-                                    <option value="avail">Available</option>
-                                    <option value="not_avail">Not Available</option>
-                                  </select>
+                                            <option default selected disabled value="notnull">--Select Rent
+                                                Availability--</option>
+                                            <option value="avail">Available</option>
+                                            <option value="not_avail">Not Available</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="country" class="form-label">Country</label>
                                         <select name="acountry" class="form-select" id="country" onchange="getStates()">
-                                        <option selected>Country</option>
-                                    </select>
+                                            <option selected>Country</option>
+                                        </select>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="state" class="form-label">State</label>
                                         <select name="astate" class="form-select" id="state" onchange="getCities()">
-                                        <option selected>State</option>
-                                    </select>
+                                            <option selected>State</option>
+                                        </select>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="city" class="form-label">City</label>
                                         <select name="acity" class="form-select" id="city">
-                                        <option selected>City</option>
-                                    </select>
+                                            <option selected>City</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="add-pincode" class="col-form-label">Add Home pincode:</label>
@@ -593,10 +596,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?
+                                </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div class="modal-body">
                                 It will delete all your home data and your user profile ..!
@@ -605,7 +609,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" onclick="userdelete()" class="btn btn-danger">Confirm Delete</button>
+                                <button type="button" onclick="userdelete()" class="btn btn-danger">Confirm
+                                    Delete</button>
                             </div>
                         </div>
                     </div>

@@ -462,24 +462,28 @@
                                     Add Product
                                   </button> {% endif %}
                                 </div>
-
+                                <br><br><br>
                                 <div class="row gutters-sm">
                                     <div class="col-sm-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+                                                <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+                                                {% for home in homedata %} {% if home.uid == request.userdata %}
+                                                <h6 class="d-flex align-items-center mb-3">{{home.id}}&nbsp;&nbsp;&nbsp;<a href="#">{{home.city}}</a></h6>
+                                                <!-- <h6 class="d-flex align-items-center mb-3">{{home.city}}</h6> -->
+                                                {% endif %} {% endfor %}
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 mb-3">
+                                    <!-- <div class="col-sm-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>

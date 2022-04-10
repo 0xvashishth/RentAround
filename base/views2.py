@@ -20,8 +20,13 @@ def userprofile(request):
                 return render(request,'user_profile.html')
             elif(userdata.usertype=="renter"):
                 request.userdata = userdata
+                homedata = RentHome.objects.all()
+                context = {}
+                context['homedata'] = homedata
+                print(context['homedata'])
+                context['userdata_id'] = userdata.id
                 print("You Are : ", user.first_name, user.last_name, userdata.usertype)
-                return render(request,'user_profile.html')
+                return render(request,'user_profile.html', context)
             else:
                 return redirect('/')
         else:

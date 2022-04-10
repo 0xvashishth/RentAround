@@ -456,7 +456,7 @@
                                 <!-- <div class="col-sm-6">
                                     <button class="btn btn-info " target="__blank" data-toggle="modal" data-bs-target="#deleteModal">Delete</button>
                                 </div> -->
-                                &nbsp; {% if request.userdata.usertype=="renter" %}
+                                &nbsp; {% if request.userdata.usertype == "renter" %}
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHome">
                                     Add Product
@@ -606,6 +606,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- edit userprofile -->
                 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -651,175 +652,130 @@
                                     </div>
                             </div>
                             <div id="editdata" class="alert alert-danger" role="alert">
-                                <!-- edit userprofile -->
-                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Your Details</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                {% comment %}
-                                                <form> {% endcomment %} {% csrf_token %}
-                                                    <div class="mb-3">
-                                                        <label for="edit-fname" class="col-form-label">Edit First Name:</label>
-                                                        <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
-                                                        <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
-                                                        <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-phone" class="col-form-label">Edit Username:</label>
-                                                        <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-address" class="col-form-label">Edit Address:</label>
-                                                        <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-email" class="col-form-label">Edit Email:</label>
-                                                        <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-city" class="col-form-label">Edit City:</label>
-                                                        <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="edit-state" class="col-form-label">Edit State:</label>
-                                                        <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
-                                                    </div>
-                                            </div>
-                                            <div id="editdata" class="alert alert-danger" role="alert">
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <input type="submit" onclick="onedit()" class="btn btn-primary">
-                                            </div>
-                                            <!-- user edit modal -->
-                                            <script>
-                                                editfname = document.querySelector("#edit-fname");
-                                                editlname = document.querySelector("#edit-lname");
-                                                editemail = document.querySelector("#edit-email");
-                                                editcity = document.querySelector("#edit-city");
-                                                editstate = document.querySelector("#edit-state");
-                                                editusername = document.querySelector("#edit-username");
-                                                editphone = document.querySelector("#edit-phone");
-                                                editaddress = document.querySelector("#edit-address");
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" onclick="onedit()" class="btn btn-primary">
+                            </div>
+                            <!-- user edit modal -->
+                            <script>
+                                editfname = document.querySelector("#edit-fname");
+                                editlname = document.querySelector("#edit-lname");
+                                editemail = document.querySelector("#edit-email");
+                                editcity = document.querySelector("#edit-city");
+                                editstate = document.querySelector("#edit-state");
+                                editusername = document.querySelector("#edit-username");
+                                editphone = document.querySelector("#edit-phone");
+                                editaddress = document.querySelector("#edit-address");
 
-                                                function onedit() {
-                                                    $.ajax({
-                                                        url: '/useredit/',
-                                                        type: "get",
-                                                        data: {
-                                                            editfname: editfname.value,
-                                                            editlname: editlname.value,
-                                                            editphone: editphone.value,
-                                                            editaddress: editaddress.value,
-                                                            editusername: editusername.value,
-                                                            editemail: editemail.value,
-                                                            editstate: editstate.value,
-                                                            editcity: editcity.value,
-                                                        },
-                                                        success: function(html) {
-                                                            var ajdisplay = document.getElementById('editdata');
-                                                            ajdisplay.innerHTML = html;
-                                                            if (ajdisplay.innerHTML === "fine") {
-                                                                window.location.reload();
-                                                            }
-                                                        },
-                                                        error: function(html) {
-                                                            alert("failed to connect!!");
-                                                        }
-                                                    });
-                                                }
-                                            </script>
-                                            <!-- user edit -->
+                                function onedit() {
+                                    $.ajax({
+                                        url: '/useredit/',
+                                        type: "get",
+                                        data: {
+                                            editfname: editfname.value,
+                                            editlname: editlname.value,
+                                            editphone: editphone.value,
+                                            editaddress: editaddress.value,
+                                            editusername: editusername.value,
+                                            editemail: editemail.value,
+                                            editstate: editstate.value,
+                                            editcity: editcity.value,
+                                        },
+                                        success: function(html) {
+                                            var ajdisplay = document.getElementById('editdata');
+                                            ajdisplay.innerHTML = html;
+                                            if (ajdisplay.innerHTML === "fine") {
+                                                window.location.reload();
+                                            }
+                                        },
+                                        error: function(html) {
+                                            alert("failed to connect!!");
+                                        }
+                                    });
+                                }
+                            </script>
+                            <!-- user edit -->
 
-                                            <script>
-                                                editusername = document.querySelector("#edit-username");
+                            <script>
+                                editusername = document.querySelector("#edit-username");
 
 
-                                                function userdelete() {
-                                                    $.ajax({
-                                                        url: '/userdelete/',
-                                                        type: "get",
-                                                        data: {
-                                                            editusername: editusername.value,
-                                                        },
-                                                        success: function(html) {
-                                                            var ajdisplay = document.getElementById('deletedata');
-                                                            console.log("received")
-                                                            ajdisplay.innerHTML = html;
-                                                            if (ajdisplay.innerHTML === "fine") {
-                                                                console.log("received1")
-                                                                window.location.replace("/");
-                                                            }
-                                                        },
-                                                        error: function(html) {
-                                                            alert("failed to connect!!");
-                                                        }
-                                                    });
-                                                }
-                                            </script>
+                                function userdelete() {
+                                    $.ajax({
+                                        url: '/userdelete/',
+                                        type: "get",
+                                        data: {
+                                            editusername: editusername.value,
+                                        },
+                                        success: function(html) {
+                                            var ajdisplay = document.getElementById('deletedata');
+                                            console.log("received")
+                                            ajdisplay.innerHTML = html;
+                                            if (ajdisplay.innerHTML === "fine") {
+                                                console.log("received1")
+                                                window.location.replace("/");
+                                            }
+                                        },
+                                        error: function(html) {
+                                            alert("failed to connect!!");
+                                        }
+                                    });
+                                }
+                            </script>
 
-                                            <script type="text/javascript">
-                                                // if ("{{userdata.username}}" != "") {
-                                                //     document.getElementById("user").innerHTML = "{{userdata.username}}"
-                                                //     document.getElementById("user").href = "/userprofile/{{userdata.username}}"
-                                                //     document.getElementById("loginid").outerHTML = ""
-                                                //     document.getElementById("administratorlink").outerHTML = ""
+                            <script type="text/javascript">
+                                // if ("{{userdata.username}}" != "") {
+                                //     document.getElementById("user").innerHTML = "{{userdata.username}}"
+                                //     document.getElementById("user").href = "/userprofile/{{userdata.username}}"
+                                //     document.getElementById("loginid").outerHTML = ""
+                                //     document.getElementById("administratorlink").outerHTML = ""
 
-                                                //     //create a new term
-                                                //     const terms = document.createElement('a');
+                                //     //create a new term
+                                //     const terms = document.createElement('a');
 
-                                                //     //set id
-                                                //     terms.setAttribute("id", "logout");
-                                                //     terms.setAttribute("class", "btn btn-outline-light");
-                                                //     terms.setAttribute("href", "/logoutuser");
-                                                //     //add the new element to html
-                                                //     var body = document.querySelector('.removeelementlogin')
-                                                //     body.appendChild(terms)
-                                                //     document.getElementById("logout").innerHTML = "Logout";
-                                                function userdelete() {
-                                                    $.ajax({
-                                                        url: '/userdelete/',
-                                                        type: "get",
-                                                        data: {
-                                                            editusername: editusername.value,
-                                                        },
-                                                        success: function(html) {
-                                                            var ajdisplay = document.getElementById('deletedata');
-                                                            console.log("received")
-                                                            ajdisplay.innerHTML = html;
-                                                            if (ajdisplay.innerHTML === "fine") {
-                                                                console.log("received1")
-                                                                window.location.replace("/");
-                                                            }
-                                                        },
-                                                        error: function(html) {
-                                                            alert("failed to connect!!");
-                                                        }
-                                                    });
-                                                }
-                                            </script>
-                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-                                            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-                                            <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-                                            <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-                                            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-                                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-                                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                                            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                                            <script src="{% static 'script.js' %}"></script>
+                                //     //set id
+                                //     terms.setAttribute("id", "logout");
+                                //     terms.setAttribute("class", "btn btn-outline-light");
+                                //     terms.setAttribute("href", "/logoutuser");
+                                //     //add the new element to html
+                                //     var body = document.querySelector('.removeelementlogin')
+                                //     body.appendChild(terms)
+                                //     document.getElementById("logout").innerHTML = "Logout";
+                                function userdelete() {
+                                    $.ajax({
+                                        url: '/userdelete/',
+                                        type: "get",
+                                        data: {
+                                            editusername: editusername.value,
+                                        },
+                                        success: function(html) {
+                                            var ajdisplay = document.getElementById('deletedata');
+                                            console.log("received")
+                                            ajdisplay.innerHTML = html;
+                                            if (ajdisplay.innerHTML === "fine") {
+                                                console.log("received1")
+                                                window.location.replace("/");
+                                            }
+                                        },
+                                        error: function(html) {
+                                            alert("failed to connect!!");
+                                        }
+                                    });
+                                }
+                            </script>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+                            <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+                            <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+                            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                            <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>

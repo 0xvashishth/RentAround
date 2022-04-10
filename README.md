@@ -55,7 +55,6 @@ _**Created by :-**_ <br>[Vashishth Patel](https://github.com/vasu-1)<br>[Smit Pa
 
 <!-- GIF of Video -->
 ![Demo](RentAround.gif)
-![demo1](https://ezgif.com/cut/ezgif-5-9f87e1ac7c.gif)
 
 <br>
 

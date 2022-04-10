@@ -38,3 +38,10 @@ def addhome(request):
                 return redirect("/userprofile")
         return redirect("/")            
     return redirect("/")
+
+
+def adminprofile(request):
+    if(request.user.is_authenticated):
+        user = request.user
+        if(user.is_superuser):
+            return render(request, 'adminpanel.html')

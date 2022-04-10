@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link link text-black display-4" href="/">
                                 Services</a></li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="userprofile"><span
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="/userprofile"><span
                                     class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"
                                     style="font-size: 25px; color: rgb(110, 199, 242);"></span>Profile</a>
                         </li>
@@ -38,13 +38,13 @@
                     </ul>
                     {% if user.is_authenticated %}
                     <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
-                            href="logout">Logout</a></div>
+                            href="/logout">Logout</a></div>
                     </div>
                     {% else %}
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="login">Login</a>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/login">Login</a>
                 </div>
             </div>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="register_user">Sign
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/register_user">Sign
                     Up</a></div>
             </div>
             {% endif%}

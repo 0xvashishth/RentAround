@@ -3,7 +3,7 @@ This is repository about rent management system. -->
 # Rent Around
 
 <!-- ## Description -->
-***Rent Around*** is website which helps one's to find house for rent in any region. 
+***Rent Around*** is a website that helps people find houses for rent in any area.
 
 <!-- <h2>Rent Around</h2> -->
 
@@ -19,6 +19,7 @@ This is repository about rent management system. -->
 ![JQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=whit)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![VS-Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![PyCharm](https://img.shields.io/badge/PyCharm-000000.svg?&style=for-the-badge&logo=PyCharm&logoColor=white)
 <br>
 <hr>
 

@@ -3,7 +3,7 @@ This is repository about rent management system. -->
 # Rent Around
 
 <!-- ## Description -->
-***Rent Around*** is website which helps one's to find house for rent in any region. 
+***Rent Around*** is a website that helps people find houses for rent in any area.
 
 <!-- <h2>Rent Around</h2> -->
 

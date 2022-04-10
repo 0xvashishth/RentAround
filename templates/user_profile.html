@@ -1,3 +1,4 @@
+{% load static %} {% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -358,7 +359,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFqCCPaO3bPD5f7gbTyZ5MBb9Q1wFuQDxdhA&usqp=CAU" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{request.userdata.image.url}}" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
                                     <p class="text-muted font-size-sm">{{request.userdata.address}}</p>

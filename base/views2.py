@@ -11,11 +11,11 @@ def userprofile(request):
         user = request.user
         userdata = UsersData.objects.get(user_id=user.id)
         if(userdata.usertype=="customer"):
-            print("You Are : ", user.first_name, user.last_name)
+            print("You Are : ", user.first_name, user.last_name, userdata.usertype)
             return render(request,'user_profile.html')
         elif(userdata.usertype=="renter"):
             request.userdata = userdata
-            print("You Are : ", user.first_name, user.last_name)
+            print("You Are : ", user.first_name, user.last_name, userdata.usertype)
             return render(request,'user_profile.html')
         else:
             return redirect('/')

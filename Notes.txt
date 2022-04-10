@@ -19,6 +19,12 @@ renthome(foreigney)
 
 
 
+Homes list - D
+One House - D
+Add House - R
+Contact List - R
+
+
 
 
 

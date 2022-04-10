@@ -11,15 +11,18 @@ from django.http import HttpResponse
 def userprofile(request):
     if(request.user.is_authenticated):
         user = request.user
-        userdata = UsersData.objects.get(user_id=user.id)
-        if(userdata.usertype=="customer"):
-            request.userdata = userdata
-            print("You Are : ", user.first_name, user.last_name, userdata.usertype)
-            return render(request,'user_profile.html')
-        elif(userdata.usertype=="renter"):
-            request.userdata = userdata
-            print("You Are : ", user.first_name, user.last_name, userdata.usertype)
-            return render(request,'user_profile.html')
+        print(user.id)
+        if(not user.is_superuser):
+            userdata = UsersData.objects.get(user_id=user.id)
+            if(userdata.usertype=="customer"):
+                print("You Are : ", user.first_name, user.last_name, userdata.usertype)
+                return render(request,'user_profile.html')
+            elif(userdata.usertype=="renter"):
+                request.userdata = userdata
+                print("You Are : ", user.first_name, user.last_name, userdata.usertype)
+                return render(request,'user_profile.html')
+            else:
+                return redirect('/')
         else:
             return redirect('/')
 

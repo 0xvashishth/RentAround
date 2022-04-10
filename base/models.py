@@ -33,11 +33,6 @@ class RentHome(models.Model):
     is_available = models.BooleanField()
 
 
-# class Images(models.Model):
-#     name = models.ForeignKey(RentHome, on_delete=models.CASCADE)
-#     image = models.ImageField(upload_to='pics/')
-
-
 class Transactions(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)  # User id
     hid = models.ForeignKey(RentHome, on_delete=models.CASCADE)  # House id

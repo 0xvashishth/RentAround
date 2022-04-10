@@ -17,7 +17,6 @@ class UsersData(models.Model):
     token = models.CharField(max_length=200, null=True)
 
 
-
 class RentHome(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)
     address = models.CharField(max_length=400)
@@ -25,6 +24,7 @@ class RentHome(models.Model):
     image2 = models.ImageField(upload_to='pics/')
     image3 = models.ImageField(upload_to='pics/')
     image4 = models.ImageField(upload_to='pics/')
+    description = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)

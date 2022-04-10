@@ -14,5 +14,5 @@ urlpatterns = [
     # path('view_singlehome', views.view_singlehome, name='view_singlehome'),
     path('contract', views.contract, name='contract'),
     # path('view_singlehouse', views.view_house, name='view_renthome'),
-    path('view_home/<int:hid>', views.view_home, name='view_home'),
+    path('view_house/<int:hid>', views.view_home, name='view_home'),
 ]

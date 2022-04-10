@@ -50,6 +50,6 @@ class Contract(models.Model):
     hid = models.ForeignKey(RentHome, on_delete=models.CASCADE)  # House id
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
-    duration = models.IntegerField()
-    # Active, Pending, Completed, Cancelled
+    duration = models.IntegerField(null=True,blank=True)
+    # Active, Completed
     status = models.CharField(max_length=100)

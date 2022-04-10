@@ -100,9 +100,10 @@ def view_renthome(request):
 
 def house_list(request):
     if request.user.is_authenticated:
-        homes = RentHome.objects.all()
-        for home in homes:
-            print(home.uid.user.first_name)
+        homeList = RentHome.objects.all()
+        # for home in homes:
+        # print(home.uid.user.first_name)
+
         # print(homes.description)
 
     # homesid = RentHome.objects.values_list('uid_id', flat=True)
@@ -111,6 +112,6 @@ def house_list(request):
     # print(users)
     # user = User.objects.filter(id__in=users).values_list('id', flat=True)
     # print(user)
-    if homes is not None:
-        return render(request, 'HousesList.html', {'homes': homes, 'users': users})
+    if homeList is not None:
+        return render(request, 'house_list.html', {'homeList': homeList, })
     return redirect('login')

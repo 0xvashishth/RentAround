@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v5.6.5, mobirise.com">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:title" content="Houses List">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/mbr-103x95.png" type="image/x-icon">
+    <meta name="description" content="">
+    <title>Houses List</title>
+    {% include 'CSS.html' %}
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <section data-bs-version="5.1" class="features10 cid-t2vFS4NuwV" id="features11-13">
+        <div class="container">
+            <div class="title">
+                <h3 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                    <strong>Available Houses</strong><br><strong><br></strong>
+                </h3>
+            </div>
+
+            {% for home in homeList %}
+            <div class="card">
+                <div class="card-wrapper">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-3">
+                            <div class="image-wrapper">
+                                <img src="{{home.image1.url}}" alt="Mobirise Website Builder" title="">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <div class="card-box">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="top-line">
+                                            <h4 class="card-title mbr-fonts-style display-5">
+                                                <strong>{{home.address}}</strong>
+                                            </h4>
+                                            <p class="cost mbr-fonts-style display-5">₹{{home.rent}} <sub>per
+                                                    person</sub></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="bottom-line">
+                                            <p class="mbr-text mbr-fonts-style m-0 display-7">{{home.description}}</p>
+                                        </div>
+                                        <div class="bottom-line">
+                                            <p class="mbr-text mbr-fonts-style m-0 display-7">
+                                                <strong>Renter Name :- </strong>{{home.uid.user.first_name}}
+                                            </p>
+                                            <p class="mbr-text mbr-fonts-style m-0 display-7">
+                                                <b>Capacity :- </b>{{home.rent_capacity}}
+                                            </p>
+                                            <div class="navbar-buttons mbr-section-btn"><a
+                                                    class="btn btn-primary display-4" href="">View</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    {% include 'footer.html' %}
+    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+                class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+</body>
+
+</html>

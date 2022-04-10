@@ -6,11 +6,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Profile | {{request.user.first_name}}</title>
-    <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU" rel="icon">
+    <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU"
+        rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         .body {
@@ -20,7 +23,7 @@
             padding: 0;
             font-family: sans-serif;
         }
-        
+
         .button {
             display: flex;
             justify-content: center;
@@ -29,36 +32,37 @@
             height: 80px;
             margin: 0;
         }
-        
+
         #mobile-menu {
             position: absolute;
             top: 20%;
             right: 5%;
             transform: translate(5%, 20%);
         }
-        
+
         .navbar__toggle .bar {
             display: block;
             cursor: pointer;
         }
-        
+
         #mobile-menu.is-active .bar:nth-child(2) {
             opacity: 0;
         }
-        
+
         #mobile-menu.is-active .bar:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
         }
-        
+
         #mobile-menu.is-active .bar:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
         }
+
         /* Main Content CSS */
-        
+
         .main {
             background-color: #141414;
         }
-        
+
         .main__container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -73,12 +77,12 @@
             padding-right: 50px;
             padding-left: 50px;
         }
-        
+
         .main__content {
             color: #fff;
             width: 100%;
         }
-        
+
         .main__content h1 {
             font-size: 4rem;
             background-color: #ff8177;
@@ -89,7 +93,7 @@
             -webkit-text-fill-color: transparent;
             -moz-text-fill-color: transparent;
         }
-        
+
         .main__content h2 {
             font-size: 4rem;
             margin-top: 10px;
@@ -101,7 +105,7 @@
             -webkit-text-fill-color: transparent;
             -moz-text-fill-color: transparent;
         }
-        
+
         .main__content h3 {
             font-size: 2.5rem;
             margin-top: 50px;
@@ -113,17 +117,17 @@
             -webkit-text-fill-color: transparent;
             -moz-text-fill-color: transparent;
         }
-        
+
         .main__content p {
             margin-top: 1rem;
             font-size: 2rem;
             font-weight: 700;
         }
-        
+
         ul {
             list-style: none;
         }
-        
+
         .main__btn {
             font-size: 1rem;
             background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
@@ -137,14 +141,14 @@
             transition: all 0.35s;
             outline: none;
         }
-        
+
         .main__btn a {
             position: relative;
             z-index: 2;
             color: #fff;
             text-decoration: none;
         }
-        
+
         .main__btn:after {
             position: absolute;
             content: '';
@@ -156,26 +160,27 @@
             transition: all 0.35s;
             border-radius: 4px;
         }
-        
+
         .main__btn:hover {
             color: #fff;
         }
-        
+
         .main__btn:hover:after {
             width: 100%;
         }
-        
+
         .main__img--container {
             text-align: center;
         }
-        
+
         #main__img {
             height: 90%;
             width: 90%;
             padding-left: 20px;
         }
+
         /* Mobile Responsive */
-        
+
         @media screen and (max-width: 768px) {
             .main__container {
                 display: grid;
@@ -186,58 +191,69 @@
                 margin: 0 auto;
                 height: 90vh;
             }
+
             .h4 {
                 font-size: 2.5rem;
             }
+
             .main__img--container {
                 text-align: center;
             }
+
             .main__content {
                 text-align: center;
                 margin-bottom: 2rem;
             }
+
             .main__content h1 {
                 font-size: 2.5rem;
                 margin-top: 2rem;
             }
+
             .main__content h2 {
                 font-size: 3rem;
             }
+
             .main__content p {
                 margin-top: 1rem;
                 font-size: 1.5rem;
             }
         }
-        
+
         @media screen and (max-width: 480px) {
             .main__content h1 {
                 font-size: 2rem;
                 margin-top: 3rem;
             }
+
             h4 {
                 font-size: 1rem;
             }
+
             .main__content h2 {
                 font-size: 2rem;
             }
+
             .main__img--container {
                 text-align: center;
             }
+
             .main__content p {
                 margin-top: 2rem;
                 font-size: 1.5rem;
             }
+
             .main__btn {
                 padding: 12px 36px;
                 margin: 2.5rem 0;
             }
         }
-        
+
         .feat {
             background-color: #141414;
             text-align: center;
         }
-        
+
         .feat1 {
             font-size: 4rem;
             background-color: #ff8177;
@@ -248,7 +264,7 @@
             -webkit-text-fill-color: transparent;
             -moz-text-fill-color: transparent;
         }
-        
+
         .feat2 {
             font-size: 2.5rem;
             margin-top: 10px;
@@ -260,7 +276,7 @@
             -webkit-text-fill-color: transparent;
             -moz-text-fill-color: transparent;
         }
-        
+
         .list {
             position: relative;
             font-size: 1.5rem;
@@ -269,7 +285,7 @@
             padding-bottom: 50px;
             text-align: center;
         }
-        
+
         .footer__container {
             background-color: #141414;
             padding: 5rem 0;
@@ -287,15 +303,15 @@
             text-align: left;
             background-color: #e2e8f0;
         }
-        
+
         .main-body {
             padding: 15px;
         }
-        
+
         .card {
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
         }
-        
+
         .card {
             position: relative;
             display: flex;
@@ -307,37 +323,37 @@
             border: 0 solid rgba(0, 0, 0, .125);
             border-radius: .25rem;
         }
-        
+
         .card-body {
             flex: 1 1 auto;
             min-height: 1px;
             padding: 1rem;
         }
-        
+
         .gutters-sm {
             margin-right: -8px;
             margin-left: -8px;
         }
-        
+
         .gutters-sm>.col,
         .gutters-sm>[class*=col-] {
             padding-right: 8px;
             padding-left: 8px;
         }
-        
+
         .mb-3,
         .my-3 {
             margin-bottom: 1rem !important;
         }
-        
+
         .bg-gray-300 {
             background-color: #e2e8f0;
         }
-        
+
         .h-100 {
             height: 100% !important;
         }
-        
+
         .shadow-none {
             box-shadow: none !important;
         }
@@ -360,7 +376,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{request.userdata.image.url}}" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{request.userdata.image.url}}" alt="Admin" class="rounded-circle"
+                                    width="150">
                                 <div class="mt-3">
                                     <h4>{{request.user.first_name}} {{request.user.last_name}}</h4>
                                     <p class="text-muted font-size-sm">{{request.userdata.address}}</p>
@@ -451,15 +468,17 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a class="btn btn-info" target="__blank" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
+                                    <a class="btn btn-info" target="__blank" data-bs-toggle="modal"
+                                        data-bs-target="#editModal">Edit</a>
                                 </div>
                                 <!-- <div class="col-sm-6">
                                     <button class="btn btn-info " target="__blank" data-toggle="modal" data-bs-target="#deleteModal">Delete</button>
                                 </div> -->
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#deleteModal">
-                                    Delete Account
-                                  </button>
+                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal"
+                                        data-target="#deleteModal">
+                                        Delete Account
+                                    </button>
 
                                 </div>
                             </div>
@@ -469,7 +488,8 @@
                             <div class="col-sm-6 mb-3">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+                                        <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a
+                                                href="https://github.com/apps/awesome-bot-app">Link</a></h6>
 
                                     </div>
                                 </div>
@@ -477,7 +497,8 @@
                             <div class="col-sm-6 mb-3">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
+                                        <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a
+                                                href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
 
                                     </div>
                                 </div>
@@ -493,14 +514,15 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         It will delete all your home data and your user profile ..!
@@ -529,35 +551,43 @@
                         <form> {% endcomment %} {% csrf_token %}
                             <div class="mb-3">
                                 <label for="edit-fname" class="col-form-label">Edit First Name:</label>
-                                <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
+                                <input type="text" name="efname" class="form-control" id="edit-fname"
+                                    value="{{request.user.first_name}}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
-                                <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
+                                <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}"
+                                    id="edit-lname" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
-                                <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
+                                <input type="text" name="ephone" class="form-control"
+                                    value="{{request.userdata.mobile}}" id="edit-phone" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-phone" class="col-form-label">Edit Username:</label>
-                                <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
+                                <input type="text" name="eusername" class="form-control"
+                                    value="{{request.user.username}}" id="edit-username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-address" class="col-form-label">Edit Address:</label>
-                                <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
+                                <input type="text" name="eaddress" class="form-control"
+                                    value="{{request.userdata.address}}" id="edit-address" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-email" class="col-form-label">Edit Email:</label>
-                                <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
+                                <input type="email" name="eemail" class="form-control" value="{{request.user.email}}"
+                                    id="edit-email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-city" class="col-form-label">Edit City:</label>
-                                <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
+                                <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}"
+                                    id="edit-city" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit-state" class="col-form-label">Edit State:</label>
-                                <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
+                                <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}"
+                                    id="edit-state" required>
                             </div>
                     </div>
                     <div id="editdata" class="alert alert-danger" role="alert">
@@ -592,14 +622,14 @@
                                     editstate: editstate.value,
                                     editcity: editcity.value,
                                 },
-                                success: function(html) {
+                                success: function (html) {
                                     var ajdisplay = document.getElementById('editdata');
                                     ajdisplay.innerHTML = html;
                                     if (ajdisplay.innerHTML === "fine") {
                                         window.location.reload();
                                     }
                                 },
-                                error: function(html) {
+                                error: function (html) {
                                     alert("failed to connect!!");
                                 }
                             });
@@ -618,7 +648,7 @@
                                 data: {
                                     editusername: editusername.value,
                                 },
-                                success: function(html) {
+                                success: function (html) {
                                     var ajdisplay = document.getElementById('deletedata');
                                     console.log("received")
                                     ajdisplay.innerHTML = html;
@@ -627,7 +657,7 @@
                                         window.location.replace("/");
                                     }
                                 },
-                                error: function(html) {
+                                error: function (html) {
                                     alert("failed to connect!!");
                                 }
                             });
@@ -655,10 +685,17 @@
                     }
                 </script> -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                        crossorigin="anonymous"></script>
 </body>
 
 </html>

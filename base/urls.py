@@ -11,4 +11,5 @@ urlpatterns = [
     path('house_list', views.house_list, name='house_list'),
     # path('userprofile', views2.userprofile, name='user_profile'),
     path('view_renthome', views.view_renthome, name='view_renthome'),
+    path('view_singlehome', views.view_singlehome, name='view_singlehome'),
 ]

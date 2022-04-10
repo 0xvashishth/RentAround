@@ -13,6 +13,6 @@ urlpatterns = [
     path('view_renthome', views.view_renthome, name='view_renthome'),
     # path('view_singlehome', views.view_singlehome, name='view_singlehome'),
     path('contract', views.contract, name='contract'),
-    # path('view_singlehouse', views.view_house, name='view_renthome'),
+    path('view_home/<int:hid>', views.view_home, name='view_home1'),
     path('view_house/<int:hid>', views.view_home, name='view_home'),
 ]

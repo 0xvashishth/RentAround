@@ -23,9 +23,10 @@ def login(request):
         if user is not None:
             # users = UsersData.objects.get(user_id=user.id)
             auth_login(request, user)
-            userdata = UsersData.objects.filter(user_id=user.id).get()
-            request.session['userdata']=userdata.id
-            print(userdata.usertype)
+            if(not user.is_superuser):
+                userdata = UsersData.objects.filter(user_id=user.id).get()
+                request.session['userdata']=userdata.id
+                print(userdata.usertype)
             # if users.usertype=='customer':
             #     return redirect('/')
             # else:

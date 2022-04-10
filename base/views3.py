@@ -46,3 +46,7 @@ def adminprofile(request):
         user = request.user
         if(user.is_superuser):
             return render(request, 'adminpanel.html')
+        else:
+            return redirect("/")
+    else:
+        return redirect("/")

@@ -89,5 +89,5 @@ def logout(request):
 
 def house_list(request):
     if request.user.is_authenticated:
-        render(request,'HousesList.html')
+        return render(request,'HousesList.html')
     return redirect('login')

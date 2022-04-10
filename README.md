@@ -1,9 +1,25 @@
 <!-- # RentAround
 This is repository about rent management system. -->
-# Rent Around
+# [Rent Around](https://sheltered-scrubland-18346.herokuapp.com/)
 
 <!-- ## Description -->
-***Rent Around*** is a website that helps people find houses for rent in any area.
+
+## About 
+In today's scenarios, students and people may face housing issues, so we devised a solution: we created ***Rent Around***, a website where they can find accomodation in a convenient location and rent directly from this website and can directly contact the owners of the house.
+
+<br>
+
+## Features 💻
+- This website has great features for both users and renters.
+Renters can add their properties, edit them, and view their current status. The user can check the availability of houses in a specific area and contact the renter directly.
+
+
+<br>
+
+## Future Modification 🔭
+In the future, we may add chat functionality so that users can directly chat with renters, as well as payment, a more user-friendly UI, and the ability for renters to track records.
+
+
 
 <!-- <h2>Rent Around</h2> -->
 
@@ -20,6 +36,7 @@ This is repository about rent management system. -->
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![VS-Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![PyCharm](https://img.shields.io/badge/PyCharm-000000.svg?&style=for-the-badge&logo=PyCharm&logoColor=white)
+![SubLime](https://img.shields.io/badge/sublime_text-%23575757.svg?&style=for-the-badge&logo=sublime-text&logoColor=important)
 <br>
 <hr>
 
@@ -32,17 +49,17 @@ _**Created by :-**_ <br>[Vashishth Patel](https://github.com/vasu-1)<br>[Smit Pa
 ## Watch Demo Video :-
 
 (Project Demo Link)
-"[Rent Around]()"
+"[Rent Around](https://youtu.be/VUCAK-51pV0)"
 
 <br>
 
 <!-- GIF of Video -->
-
-![Demo](.gif)
+![Demo](RentAround.gif)
 
 <br>
 
 ---
+<br>
 
 <!-- ## Contributors -->
 <a href="https://github.com/vasu-1/RentAround/graphs/contributors">

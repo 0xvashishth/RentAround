@@ -15,7 +15,6 @@ bin-release/
 *.pyc
 base/__pycache__/**
 RentAround/__pycache__/**
-base/migrations/**
 # base/__pycache__/**
 # RentAround/__pycache__/
 # base/migrations/

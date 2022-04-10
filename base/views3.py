@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import NameForm
 from django.views.decorators.csrf import csrf_exempt

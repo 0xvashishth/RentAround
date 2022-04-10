@@ -9,7 +9,7 @@ In today's scenarios, students and people may face housing issues, so we devised
 
 <br>
 
-## Features
+## Features 💻
 - This website has great features for both users and renters.
 Renters can add their properties, edit them, and view their current status. The user can check the availability of houses in a specific area and contact the renter directly.
 

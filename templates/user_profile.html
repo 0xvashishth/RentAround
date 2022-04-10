@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         .body {
@@ -450,133 +451,190 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a class="btn btn-info " target="__blank" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
+                                    <a class="btn btn-info" target="__blank" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
                                 </div>
+                                <!-- <div class="col-sm-6">
+                                    <button class="btn btn-info " target="__blank" data-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                                </div> -->
                                 <div class="col-sm-6">
-                                    <a class="btn btn-info " target="__blank" data-bs-toggle="modal" data-bs-target="#editModal">Delete</a>
+                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#deleteModal">
+                                    Delete Account
+                                  </button>
+
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row gutters-sm">
+                            <div class="col-sm-6 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
+                </div>
 
-                    <div class="row gutters-sm">
-                        <div class="col-sm-6 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+            </div>
+        </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
-
-                                </div>
-                            </div>
-                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
                     </div>
+                    <div class="modal-body">
+                        It will delete all your home data and your user profile ..!
+                    </div>
+                    <div id="deletedata" class="alert alert-danger" role="alert">
 
-
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="userdelete()" class="btn btn-danger">Confirm Delete</button>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
 
+        <!-- edit userprofile -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Your Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% comment %}
+                        <form> {% endcomment %} {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="edit-fname" class="col-form-label">Edit First Name:</label>
+                                <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
+                                <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
+                                <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-phone" class="col-form-label">Edit Username:</label>
+                                <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-address" class="col-form-label">Edit Address:</label>
+                                <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-email" class="col-form-label">Edit Email:</label>
+                                <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-city" class="col-form-label">Edit City:</label>
+                                <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-state" class="col-form-label">Edit State:</label>
+                                <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
+                            </div>
+                    </div>
+                    <div id="editdata" class="alert alert-danger" role="alert">
 
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Your Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {% comment %}
-                    <form> {% endcomment %} {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="edit-fname" class="col-form-label">Edit First Name:</label>
-                            <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
-                            <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
-                            <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-phone" class="col-form-label">Edit Username:</label>
-                            <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-address" class="col-form-label">Edit Address:</label>
-                            <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-email" class="col-form-label">Edit Email:</label>
-                            <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-city" class="col-form-label">Edit City:</label>
-                            <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit-state" class="col-form-label">Edit State:</label>
-                            <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
-                        </div>
-                </div>
-                <div id="editdata" class="alert alert-danger" role="alert">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" onclick="onedit()" class="btn btn-primary">
+                    </div>
+                    <!-- user edit modal -->
+                    <script>
+                        editfname = document.querySelector("#edit-fname");
+                        editlname = document.querySelector("#edit-lname");
+                        editemail = document.querySelector("#edit-email");
+                        editcity = document.querySelector("#edit-city");
+                        editstate = document.querySelector("#edit-state");
+                        editusername = document.querySelector("#edit-username");
+                        editphone = document.querySelector("#edit-phone");
+                        editaddress = document.querySelector("#edit-address");
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" onclick="onedit()" class="btn btn-primary">
-                </div>
-
-                <script>
-                    editfname = document.querySelector("#edit-fname");
-                    editlname = document.querySelector("#edit-lname");
-                    editemail = document.querySelector("#edit-email");
-                    editcity = document.querySelector("#edit-city");
-                    editstate = document.querySelector("#edit-state");
-                    editusername = document.querySelector("#edit-username");
-                    editphone = document.querySelector("#edit-phone");
-                    editaddress = document.querySelector("#edit-address");
-
-                    function onedit() {
-                        $.ajax({
-                            url: '/useredit/',
-                            type: "get",
-                            data: {
-                                editfname: editfname.value,
-                                editlname: editlname.value,
-                                editphone: editphone.value,
-                                editaddress: editaddress.value,
-                                editusername: editusername.value,
-                                editemail: editemail.value,
-                                editstate: editstate.value,
-                                editcity: editcity.value,
-                            },
-                            success: function(html) {
-                                var ajdisplay = document.getElementById('editdata');
-                                ajdisplay.innerHTML = html;
-                                if (ajdisplay.innerHTML === "fine") {
-                                    window.location.reload();
+                        function onedit() {
+                            $.ajax({
+                                url: '/useredit/',
+                                type: "get",
+                                data: {
+                                    editfname: editfname.value,
+                                    editlname: editlname.value,
+                                    editphone: editphone.value,
+                                    editaddress: editaddress.value,
+                                    editusername: editusername.value,
+                                    editemail: editemail.value,
+                                    editstate: editstate.value,
+                                    editcity: editcity.value,
+                                },
+                                success: function(html) {
+                                    var ajdisplay = document.getElementById('editdata');
+                                    ajdisplay.innerHTML = html;
+                                    if (ajdisplay.innerHTML === "fine") {
+                                        window.location.reload();
+                                    }
+                                },
+                                error: function(html) {
+                                    alert("failed to connect!!");
                                 }
-                            },
-                            error: function(html) {
-                                alert("failed to connect!!");
-                            }
-                        });
-                    }
-                </script>
+                            });
+                        }
+                    </script>
 
-                <!-- <script>
+                    <!-- user edit -->
+
+                    <script>
+                        editusername = document.querySelector("#edit-username");
+
+                        function userdelete() {
+                            $.ajax({
+                                url: '/userdelete/',
+                                type: "get",
+                                data: {
+                                    editusername: editusername.value,
+                                },
+                                success: function(html) {
+                                    var ajdisplay = document.getElementById('deletedata');
+                                    console.log("received")
+                                    ajdisplay.innerHTML = html;
+                                    if (ajdisplay.innerHTML === "fine") {
+                                        console.log("received1")
+                                        window.location.replace("/");
+                                    }
+                                },
+                                error: function(html) {
+                                    alert("failed to connect!!");
+                                }
+                            });
+                        }
+                    </script>
+
+                    <!-- <script>
                     if ("{{userdata.username}}" != "") {
                         document.getElementById("user").innerHTML = "{{userdata.username}}"
                         document.getElementById("user").href = "/userprofile/{{userdata.username}}"
@@ -596,10 +654,11 @@
                         document.getElementById("logout").innerHTML = "Logout";
                     }
                 </script> -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -61,3 +61,18 @@ def useredit(request):
             return HttpResponse('fine')
         return redirect('/')
     return redirect('/')
+
+
+def userdelete(request):
+    if(request.user.is_authenticated):
+        user = request.user
+        userdata = UsersData.objects.get(user_id=user.id)
+        if(request.method=="GET"):
+            editusername = request.GET.get("editusername")
+            auth_logout(request)
+            user.delete()
+            return HttpResponse('fine')
+        else:
+            return HttpResponse('Something went wrong !!')
+    else:
+        return redirect('/')

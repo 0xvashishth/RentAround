@@ -51,6 +51,7 @@ def register_user(request):
         img = request.FILES.get('img')
 
         if(User.objects.filter(username = username).exists()):
+            # print("exist username")
             messages.warning(request,"username is not available")
             return render(request,'register.html')
         elif(User.objects.filter(email = email).exists()):
@@ -62,7 +63,7 @@ def register_user(request):
         elif(usertype == "notnull" or usertype is None):
             messages.info(request,"Please Select usertype")
             return render(request,'register.html')
-
+        # print("hello user")
         user = User.objects.create_user(username=username,password=password,email=email,first_name=fname,last_name=lname)
         user.save()
         user1 = UsersData(user=user,usertype=usertype,mobile=mobile,address=address,city=city,state=state,country=country,image=img)

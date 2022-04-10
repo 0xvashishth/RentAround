@@ -7,12 +7,14 @@ This is repository about rent management system. -->
 ## About 
 In today's scenarios, students and people may face housing issues, so we devised a solution: we created ***Rent Around***, a website where they can find accomodation in a convenient location and rent directly from this website and can directly contact the owners of the house.
 
+<br>
 
 ## Features
-- Renters can 
-- User can check availablility of
+- This website has great features for both users and renters.
+Renters can add their properties, edit them, and view their current status. The user can check the availability of houses in a specific area and contact the renter directly.
 
 
+<br>
 
 ## Future Modification 🔭
 In the future, we may add chat functionality so that users can directly chat with renters, as well as payment, a more user-friendly UI, and the ability for renters to track records.

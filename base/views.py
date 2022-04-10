@@ -23,9 +23,10 @@ def login(request):
         if user is not None:
             # users = UsersData.objects.get(user_id=user.id)
             auth_login(request, user)
-            userdata = UsersData.objects.filter(user_id=user.id).get()
-            request.session['userdata']=userdata.id
-            print(userdata.usertype)
+            if(not user.is_superuser):
+                userdata = UsersData.objects.filter(user_id=user.id).get()
+                request.session['userdata']=userdata.id
+                print(userdata.usertype)
             # if users.usertype=='customer':
             #     return redirect('/')
             # else:
@@ -122,13 +123,32 @@ def house_list(request):
     return redirect('login')
 
 
+# def view_home(request, hid):
+#     if request.method == 'GET':
+#         if(request.user.is_authenticated):
+#             houseid = request.GET.get('house_id')
+#             if(RentHome.objects.filter(id=houseid)):
+#                 temphouse = RentHome.objects.filter(id=houseid)
+#                 house = None
+#                 for h in temphouse:
+#                     house = h
+#                 return render(request, "view_house.html", {"house": house})
+#             return redirect("/house_list")
+#     return redirect("/")
+
+
+def view_home(request, hid):
+    home = RentHome.objects.get(id=hid)
+    # for h in home:
+
+    return render(request, 'view_house.html', {'home': home})
 
 
 def contract(request):
     if request.user.is_authenticated:
-        if request.method=='POST':
+        if request.method == 'POST':
             uid = request.session.get('userdata')
             hid = request.POST['homeid']
             start_date = datetime.datetime.now()
-            Contract(uid=uid,hid=hid,start_date=start_date).save()
+            Contract(uid=uid, hid=hid, start_date=start_date).save()
     return redirect("/")

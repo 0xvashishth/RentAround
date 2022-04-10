@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views,views2
+from . import views, views2
 
 urlpatterns = [
     path('index/', views.index, name='index'),
@@ -13,4 +13,6 @@ urlpatterns = [
     path('view_renthome', views.view_renthome, name='view_renthome'),
     # path('view_singlehome', views.view_singlehome, name='view_singlehome'),
     path('contract', views.contract, name='contract'),
+    # path('view_singlehouse', views.view_house, name='view_renthome'),
+    path('view_home/<int:hid>', views.view_home, name='view_home'),
 ]

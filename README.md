@@ -54,10 +54,9 @@ _**Created by :-**_ <br>[Vashishth Patel](https://github.com/vasu-1)<br>[Smit Pa
 <br>
 
 <!-- GIF of Video -->
+![Demo](RentAround.gif)
 
-<!-- ![Demo](.gif) -->
-
-<!-- <br> -->
+<br>
 
 ---
 <br>

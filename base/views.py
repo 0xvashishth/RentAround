@@ -85,9 +85,11 @@ def logout(request):
     auth_logout(request)
     return redirect('/')
 
-
+# def renthome(request):
+#     pass
 
 def house_list(request):
     if request.user.is_authenticated:
         return render(request,'HousesList.html')
     return redirect('login')
+

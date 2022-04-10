@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import UsersData, Contract, Transactions, RentHome
-
+import datetime
 
 # Create your views here.
 
@@ -23,6 +23,9 @@ def login(request):
         if user is not None:
             # users = UsersData.objects.get(user_id=user.id)
             auth_login(request, user)
+            userdata = UsersData.objects.filter(user_id=user.id).get()
+            request.session['userdata']=userdata.id
+            print(userdata.usertype)
             # if users.usertype=='customer':
             #     return redirect('/')
             # else:
@@ -100,7 +103,7 @@ def view_renthome(request):
 
 def house_list(request):
     if request.user.is_authenticated:
-        homes = RentHome.objects.all()
+        homes = RentHome.objects.select_related('uid').all()
         for home in homes:
             print(home.uid.user.first_name)
         # print(homes.description)
@@ -112,5 +115,17 @@ def house_list(request):
     # user = User.objects.filter(id__in=users).values_list('id', flat=True)
     # print(user)
     if homes is not None:
-        return render(request, 'HousesList.html', {'homes': homes, 'users': users})
+        return render(request, 'HousesList.html', {'homes': homes})
     return redirect('login')
+
+
+
+
+def contract(request):
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            uid = request.session.get('userdata')
+            hid = request.POST['homeid']
+            start_date = datetime.datetime.now()
+            Contract(uid=uid,hid=hid,start_date=start_date).save()
+    return redirect("/")

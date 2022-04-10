@@ -15,7 +15,8 @@ class UsersData(models.Model):
     country = models.CharField(max_length=100)
     reg_date = models.DateField(auto_now_add=True)
     token = models.CharField(max_length=200, null=True)
-
+    def __str__(self):
+        return self.user.username
 
 
 class RentHome(models.Model):

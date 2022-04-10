@@ -85,11 +85,24 @@ def logout(request):
     auth_logout(request)
     return redirect('/')
 
-# def renthome(request):
-#     pass
+def view_renthome(request):
+    if request.user.is_authenticated:
+        homes = RentHome.objects.all()
+        # if homes is not None:
+        return render(request,'HousesList.html',{'homes':homes})
+    return redirect('/')
 
 def house_list(request):
     if request.user.is_authenticated:
-        return render(request,'HousesList.html')
+        homes = RentHome.objects.all()
+        homesid = RentHome.objects.values_list('uid_id',flat=True)
+        # print(homesid.uid)
+        users = UsersData.objects.filter(id__in=homesid).values_list('user_id',flat=True)
+        print(users)
+        user = User.objects.filter(id__in=users).values_list('id',flat=True)
+        print(user)
+
+        if homes is not None:
+            return render(request,'HousesList.html',{'homes':homes,'users':users})
     return redirect('login')
 

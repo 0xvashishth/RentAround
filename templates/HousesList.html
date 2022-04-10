@@ -65,7 +65,7 @@
                             Services</a></li><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobiri.se"><span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn" style="font-size: 25px; color: rgb(110, 199, 242);"></span>Profile</a>
                     </li></ul>
                 
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="https://mobiri.se">Logout</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="logout">Logout</a></div>
             </div>
         </div>
     </nav>
@@ -81,103 +81,43 @@
                 <strong>Available Houses</strong><br><strong><br></strong></h3>
             
         </div>
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="{% static 'assets/images/mbr-596x397.jpg' %}" alt="Mobirise Website Builder" title="">
+
+        {% for home in homes %}
+            <div class="card">
+                <div class="card-wrapper">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-3">
+                            <div class="image-wrapper">
+                                <img src="{{home.image1.url}}" alt="Mobirise Website Builder" title="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="top-line">
-                                        <h4 class="card-title mbr-fonts-style display-5"><strong>Royal Heights</strong></h4>
-                                        <p class="cost mbr-fonts-style display-5">3000 ₹/person</p>
+                        <div class="col-12 col-md">
+                            <div class="card-box">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="top-line">
+                                            <h4 class="card-title mbr-fonts-style display-5"><strong>Name:</strong>{{home.address}}</h4><br>
+                                            <p class="cost mbr-fonts-style display-5">{{home.rent}} ₹/person</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="bottom-line">
-                                        <p class="mbr-text mbr-fonts-style m-0 display-7">
-                                            Themes in the Mobirise website builder offer multiple blocks: intros,
-                                            sliders, galleries, forms, articles, and so on. Start a project and click on
-                                            the red plus buttons to see the blocks available for your theme.
-                                        </p>
+                                    <div class="col-12">
+                                        <div class="bottom-line">
+                                            <p class="mbr-text mbr-fonts-style m-0 display-7">
+                                                <h5 class="card-title mbr-fonts-style display-5"><strong>City:</strong>{{home.city}}</h5><br>
+                                                <h5 class="card-title mbr-fonts-style display-5"><strong>State:</strong>{{home.state}}</h5><br>
+                                                <h5 class="card-title mbr-fonts-style display-5"><strong>Country:</strong>{{home.country}}</h5><br>
+                                                {{home.uid_id}}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="{%static 'assets/images/mbr-1-596x397.jpg' %}" alt="Mobirise Website Builder" title="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="top-line">
-                                        <h4 class="card-title mbr-fonts-style display-5"><strong>Sarthi Heights</strong></h4>
-                                        <p class="cost mbr-fonts-style display-5">2500 ₹/person</p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="bottom-line">
-                                        <p class="mbr-text mbr-fonts-style m-0 display-7">
-                                            Themes in the Mobirise website builder offer multiple blocks: intros,
-                                            sliders, galleries, forms, articles, and so on. Start a project and click on
-                                            the red plus buttons to see the blocks available for your theme.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="{% static 'assets/images/mbr-596x398.jpg' %}" alt="Mobirise Website Builder" title="">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="top-line">
-                                        <h4 class="card-title mbr-fonts-style display-5"><strong>Vraj Heights</strong></h4>
-                                        <p class="cost mbr-fonts-style display-5">
-                                            3500 ₹/person</p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="bottom-line">
-                                        <p class="mbr-text mbr-fonts-style m-0 display-7">
-                                            Themes in the Mobirise website builder offer multiple blocks: intros,
-                                            sliders, galleries, forms, articles, and so on. Start a project and click on
-                                            the red plus buttons to see the blocks available for your theme.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </div>    
+        {% endfor %}
+
         
         
         

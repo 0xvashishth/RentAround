@@ -49,17 +49,18 @@ _**Created by :-**_ <br>[Vashishth Patel](https://github.com/vasu-1)<br>[Smit Pa
 ## Watch Demo Video :-
 
 (Project Demo Link)
-"[Rent Around]()"
+"[Rent Around](https://youtu.be/VUCAK-51pV0)"
 
 <br>
 
 <!-- GIF of Video -->
 
-![Demo](.gif)
+<!-- ![Demo](.gif) -->
 
-<br>
+<!-- <br> -->
 
 ---
+<br>
 
 <!-- ## Contributors -->
 <a href="https://github.com/vasu-1/RentAround/graphs/contributors">

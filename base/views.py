@@ -11,7 +11,8 @@ import datetime
 
 
 def index(request):
-    return render(request, "index.html")
+    home = RentHome.objects.all()[:3]
+    return render(request, "index.html",{'home':home})
 
 
 @csrf_exempt

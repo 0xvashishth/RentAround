@@ -15,8 +15,10 @@ class UsersData(models.Model):
     country = models.CharField(max_length=100)
     reg_date = models.DateField(auto_now_add=True)
     token = models.CharField(max_length=200, null=True)
+
     def __str__(self):
         return self.user.username
+
 
 class RentHome(models.Model):
     uid = models.ForeignKey(UsersData, on_delete=models.CASCADE)
@@ -25,7 +27,7 @@ class RentHome(models.Model):
     image2 = models.ImageField(upload_to='pics/')
     image3 = models.ImageField(upload_to='pics/')
     image4 = models.ImageField(upload_to='pics/')
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=500, default=' ')
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)

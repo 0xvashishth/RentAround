@@ -45,7 +45,18 @@ def adminprofile(request):
     if(request.user.is_authenticated):
         user = request.user
         if(user.is_superuser):
-            return render(request, 'adminpanel.html')
+            homes = RentHome.objects.all()
+            request.homes  = homes
+            users = User.objects.all()
+            # request.users = users
+            context = {}
+            h_count = len(homes)
+            u_count = len(users)
+            context['users'] = users
+            context['h_count'] = h_count
+            context['u_count'] = u_count
+            context['homes'] = homes
+            return render(request, 'adminpanel.html', context)
         else:
             return redirect("/")
     else:

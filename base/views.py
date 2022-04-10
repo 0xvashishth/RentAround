@@ -117,9 +117,8 @@ def house_list(request):
     # print(users)
     # user = User.objects.filter(id__in=users).values_list('id', flat=True)
     # print(user)
-
-    if homeList is not None:
-        return render(request, 'house_list.html', {'homeList': homeList, })
+        if homeList is not None:
+            return render(request, 'house_list.html', {'homeList': homeList, })
     return redirect('login')
 
 

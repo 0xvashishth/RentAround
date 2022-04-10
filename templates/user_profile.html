@@ -450,215 +450,320 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <a class="btn btn-info" target="__blank" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
                                 </div>
                                 <!-- <div class="col-sm-6">
                                     <button class="btn btn-info " target="__blank" data-toggle="modal" data-bs-target="#deleteModal">Delete</button>
                                 </div> -->
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#deleteModal">
-                                    Delete Account
+                                &nbsp; {% if request.userdata.usertype == "renter" %}
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHome">
+                                    Add Product
                                   </button>
-
                                 </div>
+                                {% endif %} &nbsp;
                             </div>
-                        </div>
 
-                        <div class="row gutters-sm">
-                            <div class="col-sm-6 mb-3">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
+                            <div class="row gutters-sm">
+                                <div class="col-sm-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="d-flex align-items-center mb-3">Selled Homes&nbsp;<a href="https://github.com/apps/awesome-bot-app">Link</a></h6>
 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 mb-3">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h6 class="d-flex align-items-center mb-3">My Homes&nbsp;<a href="https://github.com/vasu-1/pygithub-bot">Link</a></h6>
 
-                                    </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <center>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#deleteModal">
+                    Delete Account
+                  </button>
+                </div>
+            </center>
+            <!-- Modal -->
+            <div class="modal fade" id="addHome" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Add Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                        </div>
+                        <form action="/addhome" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="add-address" class="col-form-label">Add Home Address:</label>
+                                    <input type="text" name="aaddress" class="form-control" id="add-address" value="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-description" class="col-form-label">Add Home Description:</label>
+                                    <input type="text" name="adescription" class="form-control" id="add-description" value="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-rentprice" class="col-form-label">Add Home Rent Price:</label>
+                                    <input type="text" name="aprice" class="form-control" id="add-rentprice" value="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-capacity" class="col-form-label">Add Home Rent Capacity:</label>
+                                    <input type="text" name="acapacity" class="form-control" id="add-capacity" value="" required>
+                                </div>
+                                <!-- <div class="mb-3">
+                                <label for="add-location" class="col-form-label">Add Home Location:</label>
+                                <input type="text" name="alocation" class="form-control" id="add-location" value="" required>
+                            </div> -->
+                                <div class="mb-3">
+                                    <select name="mode_rent" id="mode_rent" class="form-control" id="email-form3-v" required>
+                                    <option default selected disabled value="notnull">--Select Rent Availability--</option>
+                                    <option value="avail">Available</option>
+                                    <option value="not_avail">Not Available</option>
+                                  </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="country" class="form-label">Country</label>
+                                    <select name="acountry" class="form-select" id="country" onchange="getStates()">
+                                        <option selected>Country</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="state" class="form-label">State</label>
+                                    <select name="astate" class="form-select" id="state" onchange="getCities()">
+                                        <option selected>State</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="city" class="form-label">City</label>
+                                    <select name="acity" class="form-select" id="city">
+                                        <option selected>City</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-pincode" class="col-form-label">Add Home pincode:</label>
+                                    <input type="text" name="apincode" class="form-control" id="add-pincode" value="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-img1" class="col-form-label">Add Home img1:</label>
+                                    <input type="file" name="aimg1" data-form-field="img" class="form-control" id="add-img1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-img2" class="col-form-label">Add Home img2:</label>
+                                    <input type="file" name="aimg2" data-form-field="img" class="form-control" id="add-img2" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-img3" class="col-form-label">Add Home img3:</label>
+                                    <input type="file" name="aimg3" data-form-field="img" class="form-control" id="add-img3" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-img4" class="col-form-label">Add Home img4:</label>
+                                    <input type="file" name="aimg4" data-form-field="img" class="form-control" id="add-img4" required>
                                 </div>
                             </div>
-                        </div>
-
-
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add Product</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
             </div>
-        </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!--delete Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete your account ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-                    </div>
-                    <div class="modal-body">
-                        It will delete all your home data and your user profile ..!
-                    </div>
-                    <div id="deletedata" class="alert alert-danger" role="alert">
+                        </div>
+                        <div class="modal-body">
+                            It will delete all your home data and your user profile ..!
+                        </div>
+                        <div id="deletedata" class="alert alert-danger" role="alert">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onclick="userdelete()" class="btn btn-danger">Confirm Delete</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" onclick="userdelete()" class="btn btn-danger">Confirm Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- edit userprofile -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Your Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        {% comment %}
-                        <form> {% endcomment %} {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="edit-fname" class="col-form-label">Edit First Name:</label>
-                                <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
-                                <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
-                                <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-phone" class="col-form-label">Edit Username:</label>
-                                <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-address" class="col-form-label">Edit Address:</label>
-                                <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-email" class="col-form-label">Edit Email:</label>
-                                <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-city" class="col-form-label">Edit City:</label>
-                                <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="edit-state" class="col-form-label">Edit State:</label>
-                                <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
-                            </div>
-                    </div>
-                    <div id="editdata" class="alert alert-danger" role="alert">
+            <!-- edit userprofile -->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Your Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% comment %}
+                            <form> {% endcomment %} {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="edit-fname" class="col-form-label">Edit First Name:</label>
+                                    <input type="text" name="efname" class="form-control" id="edit-fname" value="{{request.user.first_name}}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-lname" class="col-form-label">Edit Last Name:</label>
+                                    <input type="text" name="elname" class="form-control" value="{{request.user.last_name}}" id="edit-lname" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-phone" class="col-form-label">Edit Phone Number:</label>
+                                    <input type="text" name="ephone" class="form-control" value="{{request.userdata.mobile}}" id="edit-phone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-phone" class="col-form-label">Edit Username:</label>
+                                    <input type="text" name="eusername" class="form-control" value="{{request.user.username}}" id="edit-username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-address" class="col-form-label">Edit Address:</label>
+                                    <input type="text" name="eaddress" class="form-control" value="{{request.userdata.address}}" id="edit-address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-email" class="col-form-label">Edit Email:</label>
+                                    <input type="email" name="eemail" class="form-control" value="{{request.user.email}}" id="edit-email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-city" class="col-form-label">Edit City:</label>
+                                    <input type="text" name="ecity" class="form-control" value="{{request.userdata.city}}" id="edit-city" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-state" class="col-form-label">Edit State:</label>
+                                    <input type="text" name="estate" class="form-control" value="{{request.userdata.state}}" id="edit-state" required>
+                                </div>
+                        </div>
+                        <div id="editdata" class="alert alert-danger" role="alert">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" onclick="onedit()" class="btn btn-primary">
-                    </div>
-                    <!-- user edit modal -->
-                    <script>
-                        editfname = document.querySelector("#edit-fname");
-                        editlname = document.querySelector("#edit-lname");
-                        editemail = document.querySelector("#edit-email");
-                        editcity = document.querySelector("#edit-city");
-                        editstate = document.querySelector("#edit-state");
-                        editusername = document.querySelector("#edit-username");
-                        editphone = document.querySelector("#edit-phone");
-                        editaddress = document.querySelector("#edit-address");
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" onclick="onedit()" class="btn btn-primary">
+                        </div>
+                        <!-- user edit modal -->
+                        <script>
+                            editfname = document.querySelector("#edit-fname");
+                            editlname = document.querySelector("#edit-lname");
+                            editemail = document.querySelector("#edit-email");
+                            editcity = document.querySelector("#edit-city");
+                            editstate = document.querySelector("#edit-state");
+                            editusername = document.querySelector("#edit-username");
+                            editphone = document.querySelector("#edit-phone");
+                            editaddress = document.querySelector("#edit-address");
 
-                        function onedit() {
-                            $.ajax({
-                                url: '/useredit/',
-                                type: "get",
-                                data: {
-                                    editfname: editfname.value,
-                                    editlname: editlname.value,
-                                    editphone: editphone.value,
-                                    editaddress: editaddress.value,
-                                    editusername: editusername.value,
-                                    editemail: editemail.value,
-                                    editstate: editstate.value,
-                                    editcity: editcity.value,
-                                },
-                                success: function(html) {
-                                    var ajdisplay = document.getElementById('editdata');
-                                    ajdisplay.innerHTML = html;
-                                    if (ajdisplay.innerHTML === "fine") {
-                                        window.location.reload();
+                            function onedit() {
+                                $.ajax({
+                                    url: '/useredit/',
+                                    type: "get",
+                                    data: {
+                                        editfname: editfname.value,
+                                        editlname: editlname.value,
+                                        editphone: editphone.value,
+                                        editaddress: editaddress.value,
+                                        editusername: editusername.value,
+                                        editemail: editemail.value,
+                                        editstate: editstate.value,
+                                        editcity: editcity.value,
+                                    },
+                                    success: function(html) {
+                                        var ajdisplay = document.getElementById('editdata');
+                                        ajdisplay.innerHTML = html;
+                                        if (ajdisplay.innerHTML === "fine") {
+                                            window.location.reload();
+                                        }
+                                    },
+                                    error: function(html) {
+                                        alert("failed to connect!!");
                                     }
-                                },
-                                error: function(html) {
-                                    alert("failed to connect!!");
-                                }
-                            });
-                        }
-                    </script>
+                                });
+                            }
+                        </script>
 
-                    <!-- user edit -->
+                        <!-- user edit -->
 
-                    <script>
-                        editusername = document.querySelector("#edit-username");
+                        <script>
+                            editusername = document.querySelector("#edit-username");
 
-                        function userdelete() {
-                            $.ajax({
-                                url: '/userdelete/',
-                                type: "get",
-                                data: {
-                                    editusername: editusername.value,
-                                },
-                                success: function(html) {
-                                    var ajdisplay = document.getElementById('deletedata');
-                                    console.log("received")
-                                    ajdisplay.innerHTML = html;
-                                    if (ajdisplay.innerHTML === "fine") {
-                                        console.log("received1")
-                                        window.location.replace("/");
+                            function userdelete() {
+                                $.ajax({
+                                    url: '/userdelete/',
+                                    type: "get",
+                                    data: {
+                                        editusername: editusername.value,
+                                    },
+                                    success: function(html) {
+                                        var ajdisplay = document.getElementById('deletedata');
+                                        console.log("received")
+                                        ajdisplay.innerHTML = html;
+                                        if (ajdisplay.innerHTML === "fine") {
+                                            console.log("received1")
+                                            window.location.replace("/");
+                                        }
+                                    },
+                                    error: function(html) {
+                                        alert("failed to connect!!");
                                     }
-                                },
-                                error: function(html) {
-                                    alert("failed to connect!!");
-                                }
-                            });
-                        }
-                    </script>
+                                });
+                            }
+                        </script>
 
-                    <!-- <script>
-                    if ("{{userdata.username}}" != "") {
-                        document.getElementById("user").innerHTML = "{{userdata.username}}"
-                        document.getElementById("user").href = "/userprofile/{{userdata.username}}"
-                        document.getElementById("loginid").outerHTML = ""
-                        document.getElementById("administratorlink").outerHTML = ""
+                        <script type="text/javascript">
+                            // if ("{{userdata.username}}" != "") {
+                            //     document.getElementById("user").innerHTML = "{{userdata.username}}"
+                            //     document.getElementById("user").href = "/userprofile/{{userdata.username}}"
+                            //     document.getElementById("loginid").outerHTML = ""
+                            //     document.getElementById("administratorlink").outerHTML = ""
 
-                        //create a new term
-                        const terms = document.createElement('a');
+                            //     //create a new term
+                            //     const terms = document.createElement('a');
 
-                        //set id
-                        terms.setAttribute("id", "logout");
-                        terms.setAttribute("class", "btn btn-outline-light");
-                        terms.setAttribute("href", "/logoutuser");
-                        //add the new element to html
-                        var body = document.querySelector('.removeelementlogin')
-                        body.appendChild(terms)
-                        document.getElementById("logout").innerHTML = "Logout";
-                    }
-                </script> -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                            //     //set id
+                            //     terms.setAttribute("id", "logout");
+                            //     terms.setAttribute("class", "btn btn-outline-light");
+                            //     terms.setAttribute("href", "/logoutuser");
+                            //     //add the new element to html
+                            //     var body = document.querySelector('.removeelementlogin')
+                            //     body.appendChild(terms)
+                            //     document.getElementById("logout").innerHTML = "Logout";
+
+                            // }
+                            // window.onload = function() {
+
+                            // }
+                        </script>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+                        <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+                        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+                        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                        <script src="{% static 'script.js' %}"></script>
+
 </body>
 
 </html>

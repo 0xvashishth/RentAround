@@ -32,8 +32,9 @@ class RentHome(models.Model):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     rent = models.FloatField()
+    pincode = models.CharField(max_length=10, default="1")
     rent_capacity = models.CharField(max_length=5, default=1)
-    location = models.CharField(max_length=300)
+    location = models.CharField(max_length=300, default=1)
     is_available = models.BooleanField()
 
 

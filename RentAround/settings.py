@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-a$g!=f3(9vp8%5+zzv4nbyoyr0bp6m%vozj9xpjz_wua*xdnh*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+# DEBUG_PROPAGATE_EXCEPTIONS = True
 # ALLOWED_HOSTS = ['sheltered-scrubland-18346.herokuapp.com',]
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','sheltered-scrubland-18346.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,13 +46,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'RentAround.urls'

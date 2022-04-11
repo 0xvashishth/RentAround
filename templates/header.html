@@ -13,9 +13,7 @@
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="/">Rent
                             Around</a></span>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
-                    data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -37,16 +35,16 @@
                         {% endif %}
                     </ul>
                     {% if user.is_authenticated %}
-                    <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
-                            href="/logout">Logout</a></div>
-                    </div>
-                    {% else %}
+                    <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/logout">Logout</a></div>
+                </div>
+                {% else %}
                 <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/login">Login</a>
                 </div>
-            </div>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/register_user">Sign
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="/register_user">Sign
                     Up</a></div>
             </div>
+            </div>
+
             {% endif%}
 
             </div>

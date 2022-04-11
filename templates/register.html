@@ -14,8 +14,10 @@
     <link rel="shortcut icon" href="{% static 'assets/images/mbr-103x95.png' %}" type="image/x-icon">
     <meta name="description" content="">
     <title>Register</title>
-    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons2/mobirise2.css' %}">
-    {% include 'CSS.html' %}
+    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons2/mobirise2.css' %}"> {% include 'CSS.html' %}
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -25,17 +27,8 @@
     <section data-bs-version="5.1" class="form3 cid-t2vr5GuBei mbr-fullscreen" id="form3-v">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-7 col-12" style="width: 45%;">
-                    <div class="image-wrapper">
-                        <img class="w-100" src="{% static 'assets/images/mbr-1631x1087.jpg' %}"
-                            alt="Mobirise Website Builder">
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid" style="width: 32%;">
-                    <form action="/register_user" method="POST" class="mbr-form form-with-styler"
-                        data-form-title="Form Name" enctype="multipart/form-data"><input type="hidden" name="email"
-                            data-form-email="true"
-                            value="BiHbWURx8ngfg6GOKuR6+uPjq8/HOD6MnSj6e3p5CtjK7NwFDojB68YZFiF3IIcgFUUG3YHjjvZrhiuPbpr681L8Ijk3n00/RuBQ9xqFg8g+dg6SIIi4g7jlq/bVgu9C">
+                <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid" style="width: 70%;">
+                    <form action="/register_user" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name" enctype="multipart/form-data"><input type="hidden" name="email" data-form-email="true" value="BiHbWURx8ngfg6GOKuR6+uPjq8/HOD6MnSj6e3p5CtjK7NwFDojB68YZFiF3IIcgFUUG3YHjjvZrhiuPbpr681L8Ijk3n00/RuBQ9xqFg8g+dg6SIIi4g7jlq/bVgu9C">
                         <!-- <div class="row">
                             <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for registration!!</div>
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -54,28 +47,22 @@
 
                             </div>
                             <div data-for="fname" class="col-lg-12 col-md col-sm-12 form-group mb-3">
-                                <input type="text" name="fname" placeholder="First_name" data-form-field="fname"
-                                    class="form-control" value="" id="name-form3-v" required>
+                                <input type="text" name="fname" placeholder="First_name" data-form-field="fname" class="form-control" value="" id="name-form3-v" required>
                             </div>
                             <div data-for="lname" class="col-lg-12 col-md col-sm-12 form-group mb-3">
-                                <input type="text" name="lname" placeholder="Last_name" data-form-field="lname"
-                                    class="form-control" value="" id="name-form3-v" required>
+                                <input type="text" name="lname" placeholder="Last_name" data-form-field="lname" class="form-control" value="" id="name-form3-v" required>
                             </div>
                             <div data-for="phone" class="col-lg-12 col-md col-sm-12 form-group mb-3">
-                                <input type="text" name="phone" placeholder="Phone Number" data-form-field="phone"
-                                    class="form-control" value="" id="name-form3-v" required>
+                                <input type="text" name="phone" placeholder="Phone Number" data-form-field="phone" class="form-control" value="" id="name-form3-v" required>
                             </div>
                             <div data-for="username" class="col-lg-12 col-md col-sm-12 form-group mb-3">
-                                <input type="text" name="username" placeholder="Username" data-form-field="username"
-                                    class="form-control" value="" id="name-form3-v" required>
+                                <input type="text" name="username" placeholder="Username" data-form-field="username" class="form-control" value="" id="name-form3-v" required>
                             </div>
                             <div data-for="password" class="col-lg-12 col-md col-sm-12 form-group mb-3">
-                                <input type="password" name="password" placeholder="Password" data-form-field="phone"
-                                    class="form-control" value="" id="name-form3-v" required>
+                                <input type="password" name="password" placeholder="Password" data-form-field="phone" class="form-control" value="" id="name-form3-v" required>
                             </div>
                             <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="email">
-                                <input type="email" name="email" placeholder="Email" data-form-field="email"
-                                    class="form-control" value="" id="email-form3-v" required>
+                                <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-form3-v" required>
                             </div>
                             <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="usertype">
                                 <select name="usertype" id="usertype" class="form-control" id="email-form3-v" required>
@@ -86,25 +73,20 @@
                             </div>
                         </div><br>
                         <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="address">
-                            <input type="text" name="address" placeholder="Address" data-form-field="address"
-                                class="form-control" value="" id="email-form3-v" required>
+                            <input type="text" name="address" placeholder="Address" data-form-field="address" class="form-control" value="" id="email-form3-v" required>
                         </div>
                         <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="city">
-                            <input type="text" name="city" placeholder="City" data-form-field="city"
-                                class="form-control" value="" id="email-form3-v" required>
+                            <input type="text" name="city" placeholder="City" data-form-field="city" class="form-control" value="" id="email-form3-v" required>
                         </div>
                         <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="state">
-                            <input type="text" name="state" placeholder="State" data-form-field="state"
-                                class="form-control" value="" id="email-form3-v" required>
+                            <input type="text" name="state" placeholder="State" data-form-field="state" class="form-control" value="" id="email-form3-v" required>
                         </div>
                         <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="country">
-                            <input type="text" name="country" placeholder="Country" data-form-field="country"
-                                class="form-control" value="" id="email-form3-v" required>
+                            <input type="text" name="country" placeholder="Country" data-form-field="country" class="form-control" value="" id="email-form3-v" required>
                         </div>
                         <div class="col-lg-12 col-md col-sm-12 form-group mb-3" data-for="img">
                             Upload Your Image
-                            <input type="file" name="img" placeholder="img" data-form-field="img" class="form-control"
-                                value="" id="email-form3-v" required>
+                            <input type="file" name="img" placeholder="img" data-form-field="img" class="form-control" value="" id="email-form3-v" required>
                         </div>
                         <div class="col-md-auto col-12 mbr-section-btn">
                             <button type="submit" class="btn btn-black display-4">Submit</button>
